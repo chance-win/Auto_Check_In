@@ -52,7 +52,7 @@ def get_env():
     #     send('夸克自动签到', '❌未添加COOKIE_QUARK变量')
     #     # 脚本退出
     #     sys.exit(0)
-    cookie_list = handle_cookie()
+    cookie_list = [handle_cookie()]
     return cookie_list
 
 def handle_cookie():
