@@ -175,7 +175,7 @@ class Quark:
                     log += f"❌ 签到异常: {sign_return}\n"
         else:
             log += f"❌ 签到异常: 获取成长信息失败\n"
-
+        print(log)
         # 查询抽奖余额
         balance = self.queryBalance()
         if isinstance(balance,int):
