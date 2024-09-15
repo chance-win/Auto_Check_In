@@ -136,7 +136,7 @@ class Quark:
             "kps": self.param.get('kps'),
         }
         response = requests.get(url=url, params=querystring).json()
-        # print(response)
+        print(response)
         if response.get("data"):
             return response["data"]["balance"]
         else:
