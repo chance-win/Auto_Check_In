@@ -59,7 +59,7 @@ def handle_cookie():
     original_string = "kps=AAQTVJeN1xwqSXc0YyjfUyIhsX+9wfWF5g1S4HhQJBLzf1jnyfprx5WaCth+vS+A0CJZb63iBH+N9Cr5tqxX98A0F6btcdotWeYcmtI+InhR5A==&sign=AATga5OMpRt8/1OYapev7ESgd41RJi4eO4UkkPUDGaWKIvcpTsXwrZcu8xVUUZu9VWE=&vcode=1726371680722"
     parts = original_string.split('&')
 
-    processed_string = 'user=wx; ' + '; '.join(processed_parts)
+    processed_string = 'user=wx; ' + '; '.join(parts)
     print(processed_string)
     return processed_string
 
