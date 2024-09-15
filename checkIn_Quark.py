@@ -60,6 +60,7 @@ def handle_cookie():
     parts = original_string.split('&')
 
     processed_string = 'user=wx; ' + '; '.join(parts)
+    print(processed_string)
     return processed_string
 
 class Quark:
