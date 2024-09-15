@@ -11,7 +11,7 @@ on:
     branches:
       - main
   schedule:  # 定时执行
-    - cron: '03 * * * *'
+    - cron: '05 * * * *'
 
 jobs:
   checkin:
