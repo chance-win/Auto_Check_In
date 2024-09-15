@@ -11,7 +11,7 @@ on:
     branches:
       - main
   schedule:  # 定时执行
-    - cron: '01 * * * *'
+    - cron: '03 * * * *'
 
 jobs:
   checkin:
@@ -33,7 +33,7 @@ jobs:
         python -m pip install requests
     - name: 'quark_checkin'
       run: |
-        python main.py
+        python checkIn_Quark.py
         #python note163.py ${{secrets.YOUDAO_USER}} ${{secrets.YOUDAO_PASSWD}}
         #python note163.py ${{secrets.YOUDAO_USER2}} ${{secrets.YOUDAO_PASSWD2}}
         
