@@ -24,7 +24,7 @@ Description:
     user字段是用户名 (可是随意填写，多账户方便区分)
     例如: user=张三; kps=abcdefg; sign=hijklmn; vcode=111111111;
 '''
-import os
+#import os
 import re
 import sys
 
@@ -42,18 +42,25 @@ except Exception as err:  # 异常捕捉
 # 获取环境变量
 def get_env():
     # 判断 COOKIE_QUARK是否存在于环境变量
-    if "COOKIE_QUARK" in os.environ:
-        # 读取系统变量以 \n 或 && 分割变量
-        cookie_list = re.split('\n|&&', os.environ.get('COOKIE_QUARK'))
-    else:
-        # 标准日志输出
-        print('❌未添加COOKIE_QUARK变量')
-        send('夸克自动签到', '❌未添加COOKIE_QUARK变量')
-        # 脚本退出
-        sys.exit(0)
-
+    `user=张三; kps=abcdefg; sign=hijklmn; vcode=111111111`
+    # if "COOKIE_QUARK" in os.environ:
+    #     # 读取系统变量以 \n 或 && 分割变量
+    #     cookie_list = re.split('\n|&&', os.environ.get('COOKIE_QUARK'))
+    # else:
+    #     # 标准日志输出
+    #     print('❌未添加COOKIE_QUARK变量')
+    #     send('夸克自动签到', '❌未添加COOKIE_QUARK变量')
+    #     # 脚本退出
+    #     sys.exit(0)
+    cookie_list = handle_cookie()
     return cookie_list
 
+def handle_cookie():
+    original_string = "kps=AAQTVJeN1xwqSXc0YyjfUyIhsX+9wfWF5g1S4HhQJBLzf1jnyfprx5WaCth+vS+A0CJZb63iBH+N9Cr5tqxX98A0F6btcdotWeYcmtI+InhR5A==&sign=AATga5OMpRt8/1OYapev7ESgd41RJi4eO4UkkPUDGaWKIvcpTsXwrZcu8xVUUZu9VWE=&vcode=1726371680722"
+    parts = original_string.split('&')
+
+    processed_string = 'user=wx; ' + '; '.join(parts)
+    return processed_string
 
 class Quark:
     '''
