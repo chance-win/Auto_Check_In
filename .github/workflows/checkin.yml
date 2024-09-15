@@ -9,9 +9,9 @@ name: quark checkin
 on:
   push:  # 推送时执行
     branches:
-      - master
+      - main
   schedule:  # 定时执行
-    - cron: '58 * * * *'
+    - cron: '01 * * * *'
 
 jobs:
   checkin:
