@@ -42,7 +42,7 @@ except Exception as err:  # 异常捕捉
 # 获取环境变量
 def get_env():
     # 判断 COOKIE_QUARK是否存在于环境变量
-    `user=张三; kps=abcdefg; sign=hijklmn; vcode=111111111`
+    # `user=张三; kps=abcdefg; sign=hijklmn; vcode=111111111`
     # if "COOKIE_QUARK" in os.environ:
     #     # 读取系统变量以 \n 或 && 分割变量
     #     cookie_list = re.split('\n|&&', os.environ.get('COOKIE_QUARK'))
