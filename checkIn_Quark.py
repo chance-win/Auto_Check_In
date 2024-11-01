@@ -56,7 +56,9 @@ def get_env():
     return cookie_list
 
 def handle_cookie():
-    original_string = "kps=AAQTVJeN1xwqSXc0YyjfUyIhsX+9wfWF5g1S4HhQJBLzf1jnyfprx5WaCth+vS+A0CJZb63iBH+N9Cr5tqxX98A0F6btcdotWeYcmtI+InhR5A==&sign=AATga5OMpRt8/1OYapev7ESgd41RJi4eO4UkkPUDGaWKIvcpTsXwrZcu8xVUUZu9VWE=&vcode=1726371680722"
+    #original_string = "kps=AAQTVJeN1xwqSXc0YyjfUyIhsX+9wfWF5g1S4HhQJBLzf1jnyfprx5WaCth+vS+A0CJZb63iBH+N9Cr5tqxX98A0F6btcdotWeYcmtI+InhR5A==&sign=AATga5OMpRt8/1OYapev7ESgd41RJi4eO4UkkPUDGaWKIvcpTsXwrZcu8xVUUZu9VWE=&vcode=1726371680722"
+    #original_string = "kps=AAR/GVHmrsd+yl5hmq3lmhhFIUgMMuKWV69URRmdhCf1RDPqv12FX2QrbY2xH449RiEnQaKP0OreKYYX3q6KcerHbEQvZ/6YJhdKt0EiuVaQcw==&kps_wg=AAR/GVHmrsd+yl5hmq3lmhhFIUgMMuKWV69URRmdhCf1RDPqv12FX2QrbY2xH449RiEnQaKP0OreKYYX3q6KcerHbEQvZ/6YJhdKt0EiuVaQcw==&sign_wg=AAT9AuAgyOIGzwAm068GPjSdOu/3x7WIa+iuQR1WSGIdd623j1dk+9otd918ICgYoco=&vcode=1730450866099&sign=AAT9AuAgyOIGzwAm068GPjSdOu/3x7WIa+iuQR1WSGIdd623j1dk+9otd918ICgYoco=&uc_param_str=mtdsdnfrpfbivesscpgimibtbmnijblauputogpintnwktprsvwiod&mt=CLUBDtZLPLw6/QKS5pwr23dArysyShRb&ds=AAPK+nmkWFEon/JCIglHTIoNen2FwTAyZWdd78fsJg4UsQ==&dn=62579636126-b22471b8&fr=android&pf=3300&bi=35825&ve=7.4.5.680&ss=411x864&pc=AAQRAtQtd9XY54gmHPf775eHIN6swUKF%2B1NzFjXzGOz0ke756TDJUc5m5Xx3UdNOjwbIFKahG8dFeDdpojTZFfx0&gi=bTkwBNZ6etXwhZIA9j6Hkb2to%2Fy4&mi=23113RKC6C&ni=bTkwBCzQpdTADiEAMW0kyEh633MzTvnxIXn3c4iU5veg8Dw=&la=zh&ut=AAPK+nmkWFEon/JCIglHTIoNen2FwTAyZWdd78fsJg4UsQ==&nt=6&nw=0&kt=4&pr=ucpro&sv=release&od=AARh2cvxNL%2FHHSZgKijBS2sN6xKMTxSU3QIPm6o%2BPuvgPQ%3D%3D"
+
     parts = original_string.split('&')
 
     processed_string = 'user=wx; ' + '; '.join(parts)
@@ -93,19 +95,12 @@ class Quark:
         :return: 返回一个字典，包含用户当前的签到信息
         '''
         url = "https://drive-m.quark.cn/1/clouddrive/capacity/growth/info"
-        #querystring = {
-        #    "pr": "ucpro",
-        #    "fr": "android",
-        #    "kps": self.param.get('kps'),
-        #    "sign": self.param.get('sign'),
-        #    "vcode": self.param.get('vcode')
-        #}
         querystring = {
             "pr": "ucpro",
             "fr": "android",
-            "kps": "AAR/GVHmrsd+yl5hmq3lmhhFIUgMMuKWV69URRmdhCf1RDPqv12FX2QrbY2xH449RiEnQaKP0OreKYYX3q6KcerHbEQvZ/6YJhdKt0EiuVaQcw==",
-            "sign": "AAT9AuAgyOIGzwAm068GPjSdOu/3x7WIa+iuQR1WSGIdd623j1dk+9otd918ICgYoco=",
-            "vcode": "1730450866099"
+            "kps": self.param.get('kps'),
+            "sign": self.param.get('sign'),
+            "vcode": self.param.get('vcode')
         }
         response = requests.get(url=url, params=querystring).json()
         #print(response)
