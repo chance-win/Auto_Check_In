@@ -93,12 +93,19 @@ class Quark:
         :return: 返回一个字典，包含用户当前的签到信息
         '''
         url = "https://drive-m.quark.cn/1/clouddrive/capacity/growth/info"
+        #querystring = {
+        #    "pr": "ucpro",
+        #    "fr": "android",
+        #    "kps": self.param.get('kps'),
+        #    "sign": self.param.get('sign'),
+        #    "vcode": self.param.get('vcode')
+        #}
         querystring = {
             "pr": "ucpro",
             "fr": "android",
-            "kps": self.param.get('kps'),
-            "sign": self.param.get('sign'),
-            "vcode": self.param.get('vcode')
+            "kps": "AAR/GVHmrsd+yl5hmq3lmhhFIUgMMuKWV69URRmdhCf1RDPqv12FX2QrbY2xH449RiEnQaKP0OreKYYX3q6KcerHbEQvZ/6YJhdKt0EiuVaQcw==",
+            "sign": "AAT9AuAgyOIGzwAm068GPjSdOu/3x7WIa+iuQR1WSGIdd623j1dk+9otd918ICgYoco=",
+            "vcode": "1730450866099"
         }
         response = requests.get(url=url, params=querystring).json()
         #print(response)
