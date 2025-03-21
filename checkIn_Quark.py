@@ -58,10 +58,24 @@ def get_env():
 def handle_cookie():
     #original_string = "kps=AAQTVJeN1xwqSXc0YyjfUyIhsX+9wfWF5g1S4HhQJBLzf1jnyfprx5WaCth+vS+A0CJZb63iBH+N9Cr5tqxX98A0F6btcdotWeYcmtI+InhR5A==&sign=AATga5OMpRt8/1OYapev7ESgd41RJi4eO4UkkPUDGaWKIvcpTsXwrZcu8xVUUZu9VWE=&vcode=1726371680722"
     #original_string = "kps=AAR/GVHmrsd+yl5hmq3lmhhFIUgMMuKWV69URRmdhCf1RDPqv12FX2QrbY2xH449RiEnQaKP0OreKYYX3q6KcerHbEQvZ/6YJhdKt0EiuVaQcw==&kps_wg=AAR/GVHmrsd+yl5hmq3lmhhFIUgMMuKWV69URRmdhCf1RDPqv12FX2QrbY2xH449RiEnQaKP0OreKYYX3q6KcerHbEQvZ/6YJhdKt0EiuVaQcw==&sign_wg=AAT9AuAgyOIGzwAm068GPjSdOu/3x7WIa+iuQR1WSGIdd623j1dk+9otd918ICgYoco=&vcode=1730450866099&sign=AAT9AuAgyOIGzwAm068GPjSdOu/3x7WIa+iuQR1WSGIdd623j1dk+9otd918ICgYoco=&uc_param_str=mtdsdnfrpfbivesscpgimibtbmnijblauputogpintnwktprsvwiod&mt=CLUBDtZLPLw6/QKS5pwr23dArysyShRb&ds=AAPK+nmkWFEon/JCIglHTIoNen2FwTAyZWdd78fsJg4UsQ==&dn=62579636126-b22471b8&fr=android&pf=3300&bi=35825&ve=7.4.5.680&ss=411x864&pc=AAQRAtQtd9XY54gmHPf775eHIN6swUKF%2B1NzFjXzGOz0ke756TDJUc5m5Xx3UdNOjwbIFKahG8dFeDdpojTZFfx0&gi=bTkwBNZ6etXwhZIA9j6Hkb2to%2Fy4&mi=23113RKC6C&ni=bTkwBCzQpdTADiEAMW0kyEh633MzTvnxIXn3c4iU5veg8Dw=&la=zh&ut=AAPK+nmkWFEon/JCIglHTIoNen2FwTAyZWdd78fsJg4UsQ==&nt=6&nw=0&kt=4&pr=ucpro&sv=release&od=AARh2cvxNL%2FHHSZgKijBS2sN6xKMTxSU3QIPm6o%2BPuvgPQ%3D%3D"
-    original_string = "kps=AAQi+sJbRSBq2Gw+j8zO61K8QQHwfhCBHISk4tZspkiIiOy8yLXz+PRXbwlQTaQ8VUmo0VmzHHqMAUL/PwvBmz3WeW61biIQIDYOdYZtVplD1Q==&sign=AASfUkl5DDWPRoLEauktBvqJWeIqoXu2jM/b9lDp6zEu5Ur5rnIeoIIEdlLtn5J21BU=&vcode=1739874869460"
-    parts = original_string.split('&')
+    #original_string = "kps=AAQi+sJbRSBq2Gw+j8zO61K8QQHwfhCBHISk4tZspkiIiOy8yLXz+PRXbwlQTaQ8VUmo0VmzHHqMAUL/PwvBmz3WeW61biIQIDYOdYZtVplD1Q==&sign=AASfUkl5DDWPRoLEauktBvqJWeIqoXu2jM/b9lDp6zEu5Ur5rnIeoIIEdlLtn5J21BU=&vcode=1739874869460"
+    #parts = original_string.split('&')
 
-    processed_string = 'user=wx; ' + '; '.join(parts)
+    #processed_string = 'user=wx; ' + '; '.join(parts)
+    original_string = "sign_cyclic=true&kps=AAROFd31muoSdHHVbV6iZW9bOX3ihMlD6Nt5WXkZDxkRl4uh63inNThtqHloH19eVnLQY0UjgRSezS8+yYzkXHN3mnwK6GCdR3L0JkAymuFC/Q==&sign=AATUKL4ET3YCw5kwJHA4MjFTxEXLMI0j3+dH7cWMGfeTeG4po2rIGbnNZcYT/rnZjDo=&vcode=1742554136978&..."
+
+
+    # 使用正则表达式提取需要的值
+    kps_match = re.search(r'kps=([^&]+)', original_string)
+    sign_match = re.search(r'sign=([^&]+)', original_string)
+    vcode_match = re.search(r'vcode=([^&]+)', original_string)
+
+    kps_value = kps_match.group(1) if kps_match else ''
+    sign_value = sign_match.group(1) if sign_match else ''
+    vcode_value = vcode_match.group(1) if vcode_match else ''
+
+    # 拼接字符串
+    processed_string = f'user=wx; kps={kps_value}; sign={sign_value}; vcode={vcode_value}'
     print(processed_string)
     return processed_string
 
