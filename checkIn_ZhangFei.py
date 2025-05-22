@@ -1,5 +1,5 @@
 '''
-new Env('掌上飞车签到')
+new Env('掌上飞车签到') 
 cron: 10 0 * * *
 Author       : BNDou
 Date         : 2022-12-02 19:03:27
